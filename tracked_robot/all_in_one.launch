@@ -1,0 +1,22 @@
+<launch>
+<rosparam param="odom_R">0.06828</rosparam>
+<rosparam param="odom_W">0.6343</rosparam>
+<!-- include zed -->
+<include file ="$(find zed_wrapper)/launch/zed.launch">
+</include> 
+<!-- include dynamixel -->
+<include file ="$(find my_dynamixel_workbench_tutorial)/launch/position_control.launch">
+</include>
+<!-- <include file ="$(find my_dynamixel_tutorial)/controller_manager.launch">
+</include> -->
+<!-- include Motor -->
+<node name="Motor_controller" pkg="tracked_robot" type="Motor_node" required="true"  >
+</node>
+<!-- include Odom -->
+<node name="Odometry" pkg="tracked_robot" type="Odometry" required="true"  >
+</node>
+<!-- output="screen" -->
+<!-- include Robot Controller -->
+<!-- <node name="Robot_Control_test" pkg="tracked_robot" type="Robot_troller" required="true" output="screen" >
+</node> -->
+</launch>

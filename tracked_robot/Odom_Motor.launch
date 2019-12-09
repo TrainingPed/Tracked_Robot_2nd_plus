@@ -1,0 +1,8 @@
+<launch>
+<!-- include Motor -->
+<node name="Motor_controller" pkg="tracked_robot" type="Motor_node" required="true" >
+</node>
+<!-- include Odom -->
+<node name="Odometry" pkg="tracked_robot" type="Odometry" required="true" output="screen" >
+</node>
+</launch>

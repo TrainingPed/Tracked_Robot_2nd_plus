@@ -1,0 +1,35 @@
+<launch>
+<rosparam param="odom_R">0.06828</rosparam>
+<rosparam param="odom_W">0.6343</rosparam>
+<!-- 0.84112 -->
+
+<!-- include Motor -->
+<node name="Motor_controller" pkg="tracked_robot" type="Motor_node" required="true" ></node>
+<!-- include Odometry -->
+<node name="Odometry" pkg="tracked_robot" type="Odometry" required="true" output="screen" ></node>
+<!-- include Ultrasonic -->
+<node name="ultrasonic" pkg="tracked_robot" type="Ultrasonic" required="true"></node>
+<!-- launch cmd_vel controller -->
+<!-- <node name="cirlab_trackings" pkg="move" type="Tracked_gogo" output="screen"></node> -->
+
+<!-- include MX28-Motor -->
+
+ <arg name="device_name"                default="/dev/ttyUSB0"/>
+ <arg name="baud_rate"                  default="57600"/>
+
+ <arg name="scan_range"                 default="10"/>
+
+ <arg name="profile_velocity"           default="200"/>
+ <arg name="profile_acceleration"       default="50"/>
+
+ <param name="device_name"              value="$(arg device_name)"/>
+ <param name="baud_rate"                value="$(arg baud_rate)"/>
+
+ <param name="scan_range"               value="$(arg scan_range)"/>
+
+ <param name="profile_velocity"         value="$(arg profile_velocity)"/>
+ <param name="profile_acceleration"     value="$(arg profile_acceleration)"/>
+
+ <node name="position_control" pkg="dynamixel_workbench_controllers" type="position_control" output="screen"/>
+ </launch>
+
