@@ -1,0 +1,55 @@
+<launch>
+
+<!-- test 3rd generation trackedrobot stair finding function -->
+
+
+<arg name="t1" default="2" />
+<arg name="t2" default="12" />
+<arg name="t3" default="28" />
+<arg name="t4" default="350" />
+<arg name="down" default="2" />
+<arg name="right" default="2" />
+<arg name="cnt_row" default="70" />
+<arg name="confidence" default="300" />
+<arg name="rgb_imgshow" default="False" />
+<arg name="depth_imgshow" default="False" />
+<!-- <arg name="ROI_leftdown" default="[100,375]" />
+<arg name="ROI_righttop" default="[640,230]" /> -->
+
+<!-- launch nodes -->
+ <!-- <include file ="$(find tracked_robot)/all_in_one.launch"></include> -->
+<node pkg="image_fox" type="Stair_Det" name="Stair_Det"  output="screen" >
+    <!-- threshold t1 is the depth value,if it is bigger than t1 , then it is a obstacle point. -->
+    <param name ="t1" value="$(arg t1)"/>
+    <!-- threshold t2 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <param name ="t2" value="$(arg t2)"/>
+    <!-- threshold t3 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <param name ="t3" value="$(arg t3)"/>
+    <!-- threshold t4 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <param name ="t4" value="$(arg t4)"/>
+
+    <param name ="down" value="$(arg down)"/>
+
+    <param name ="right" value="$(arg right)"/>
+    <!-- decide the row of counter 21  -->
+    <param name ="cnt_row" value="$(arg cnt_row)"/>
+    <param name ="depth_imgshow" value="$(arg depth_imgshow)"/>
+    <param name ="rgb_imgshow" value="$(arg rgb_imgshow)"/>
+    <param name ="confidence" value="$(arg confidence)"/>
+    <rosparam param="ROI_leftdown">[100,350]</rosparam>
+    <rosparam param="ROI_righttop">[640,230]</rosparam>
+    <rosparam param="xxx">340</rosparam>
+    <rosparam param="yyy">280</rosparam>
+    <!-- <param name ="ROI_leftdown" value="$(arg ROI_leftdown)"/>
+    <param name ="ROI_righttop" value="$(arg ROI_righttop)"/> -->
+
+
+</node>
+ <!-- <node pkg="rosaria" type="RosAria" name="RosAria" /> -->
+ <!-- <node pkg="tf" type="static_transform_publisher" name="base_linktolaser" args="0 0 0 0 0 0 1 base_link laser 100" />
+ <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen"/> -->
+
+  <!-- <node pkg="package-name" type="executable-name" name="node-name" /> -->
+<!-- </node> -->
+
+</launch>

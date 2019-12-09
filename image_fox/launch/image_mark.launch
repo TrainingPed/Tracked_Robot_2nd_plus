@@ -1,0 +1,35 @@
+<launch>
+
+<!-- test 3rd generation trackedrobot obstacle avoid -->
+
+
+
+
+
+<!-- launch nodes -->
+ <!-- <include file ="$(find tracked_robot)/all_in_one.launch"></include> -->
+ <!-- <node pkg="tracked_robot" type="Robot_Control_test" name="Robot_troller" /> -->
+<node name="image_mark" pkg="image_fox" type="image_mark" output="screen">
+    <!-- px1 is the leftmost point's x  -->
+    <rosparam param="px1">0</rosparam>
+    <!-- py1 is the leftmost point's y -->
+    <rosparam param="py1">0</rosparam>
+    <!-- px is columns of a block  -->
+    <rosparam param="px">214</rosparam>
+    <!-- py us rows of a block -->
+    <rosparam param="py">114</rosparam>
+    <!-- threshold t1 is the depth value,if it is bigger than t1 , then it is a obstacle point. -->
+    <rosparam param="t1">0.01</rosparam>
+    <!-- threshold t2 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <rosparam param="t2_c">160</rosparam>
+    <!-- threshold t2 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <rosparam param="t2_o">2000</rosparam>
+</node>
+ <!-- <node pkg="rosaria" type="RosAria" name="RosAria" /> -->
+ <!-- <node pkg="tf" type="static_transform_publisher" name="base_linktolaser" args="0 0 0 0 0 0 1 base_link laser 100" /> -->
+ <!-- <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen"/> -->
+
+  <!-- <node pkg="package-name" type="executable-name" name="node-name" /> -->
+<!-- </node> -->
+
+</launch>

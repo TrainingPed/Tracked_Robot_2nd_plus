@@ -1,0 +1,35 @@
+<launch>
+
+<!-- test 2nd generation trackedrobot obstacle avoid -->
+
+
+<!-- px1 is the leftmost point's x  -->
+<rosparam param="px1">175</rosparam>
+<!-- py1 is the leftmost point's y -->
+<rosparam param="py1">50</rosparam>
+<!-- px is columns of a block  -->
+<rosparam param="px">100</rosparam>
+<!-- py us rows of a block -->
+<rosparam param="py">50</rosparam>
+<!-- threshold t1 is the depth value,if it is bigger than t1 , then it is a obstacle point. -->
+<rosparam param="t1">0.01</rosparam>
+<!-- threshold t2 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+<rosparam param="t2_c">500</rosparam>
+<!-- threshold t2 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+<rosparam param="t2_o">8000</rosparam>
+<!-- Crop the image into 9 blocks area -->
+<rosparam param="Crop">False</rosparam>
+
+<!-- launch nodes -->
+ <!-- <include file ="$(find tracked_robot)/all_in_one.launch"></include> -->
+ <!-- <node pkg="tracked_robot" type="Robot_Control_test" name="Robot_troller" /> -->
+ <node name="depth_subscribe" pkg="image_fox" type="depth_subscribe" output="screen"></node>
+
+ <!-- <node pkg="rosaria" type="RosAria" name="RosAria" /> -->
+ <!-- <node pkg="tf" type="static_transform_publisher" name="base_linktolaser" args="0 0 0 0 0 0 1 base_link laser 100" />
+ <node pkg="realsense_camera" type="f200_nodlet_rgbd" name="f200_nodelet_rgbd" output="screen"/> -->
+
+  <!-- <node pkg="package-name" type="executable-name" name="node-name" /> -->
+<!-- </node> -->
+
+</launch>

@@ -1,0 +1,41 @@
+<launch>
+
+<!-- test 3rd generation trackedrobot stair finding function -->
+
+
+
+<!-- threshold t1 is the depth value,if it is bigger than t1 , then it is a obstacle point. -->
+
+
+
+<!-- launch nodes -->
+ <!-- <include file ="$(find tracked_robot)/all_in_one.launch"></include> -->
+ <node pkg="image_fox" type="Up_Stair_Mode" name="Up_Stair_Mode"  output="screen">
+
+
+    <rosparam param="stop_align_dis">170</rosparam>
+
+    <rosparam param="far_dis">160</rosparam>
+    <rosparam param="Lfar_dis">0.5</rosparam>
+    <rosparam param="Lclose_dis">0.43</rosparam>
+     <rosparam param="Lstop_align_dis">0.8</rosparam>
+    <!-- threshold t2 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <rosparam param="close_dis">140</rosparam>
+    <!-- threshold t3 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <rosparam param="err">0.01 </rosparam>
+
+    <rosparam param="Kp">0.2 </rosparam>
+
+    <rosparam param="Ki">0.001 </rosparam>
+    <rosparam param="md21_max">170 </rosparam>
+    <rosparam param="vv">0.1 </rosparam>
+
+ </node>
+ <!-- <node pkg="rosaria" type="RosAria" name="RosAria" /> -->
+ <!-- <node pkg="tf" type="static_transform_publisher" name="base_linktolaser" args="0 0 0 0 0 0 1 base_link laser 100" />
+ <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen"/> -->
+
+  <!-- <node pkg="package-name" type="executable-name" name="node-name" /> -->
+<!-- </node> -->
+
+</launch>

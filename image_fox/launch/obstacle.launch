@@ -1,0 +1,48 @@
+<launch>
+
+<!-- test 3rd generation trackedrobot obstacle avoid -->
+
+<param name="Obstacle_NameSpace" type="str" value="ob3tacle_avoid"/>
+<!-- launch nodes -->
+ <!-- <include file ="$(find tracked_robot)/all_in_one.launch"></include> -->
+ <!-- <node pkg="tracked_robot" type="Robot_Control_test" name="Robot_troller" /> -->
+ <node name="ob3tacle_avoid" pkg="image_fox" type="ob3tacle_avoid" output="screen">
+    <!-- px1 is the leftmost point's x (175) -->
+    <rosparam param="px1">150</rosparam>
+    <!-- py1 is the leftmost point's y -->
+    <rosparam param="py1">85</rosparam>
+    <!-- px is columns of a block (100) -->
+    <rosparam param="px">120</rosparam>
+    <!-- py us rows of a block -->
+    <rosparam param="py">50</rosparam>
+    <!-- threshold t1 is the depth value,if it is bigger than t1 , then it is a obstacle point. -->
+    <rosparam param="t1">0.01</rosparam>
+    <!-- threshold t2 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <rosparam param="t2_c">160</rosparam>
+    <!-- threshold t2 is the number of points ,if it is bigger than t2 , then it is a obstacle. -->
+    <rosparam param="t2_o">1800</rosparam>
+
+    <rosparam param="t2_oh">3900</rosparam>
+
+    <!-- change the center velocity  -->
+    <rosparam param="Vel_c">0.15</rosparam>
+
+    <rosparam param="r1">0.5</rosparam>
+    <rosparam param="r2">0.05</rosparam>
+    <rosparam param="d2_min">0.2</rosparam>
+
+    <rosparam param="laggy">10</rosparam>
+    <rosparam param="moving_lock">True</rosparam>
+
+    <!-- image_show turn on/off -->
+    <rosparam param="depth_imgshow">True</rosparam>
+    <rosparam param="rgb_show">True</rosparam>
+  </node>
+ <!-- <node pkg="rosaria" type="RosAria" name="RosAria" /> -->
+ <!-- <node pkg="tf" type="static_transform_publisher" name="base_linktolaser" args="0 0 0 0 0 0 1 base_link laser 100" />
+ <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen"/> -->
+
+  <!-- <node pkg="package-name" type="executable-name" name="node-name" /> -->
+<!-- </node> -->
+
+</launch>

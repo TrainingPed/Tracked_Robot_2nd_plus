@@ -1,0 +1,11 @@
+<launch>
+	<!-- include RealSense -->
+		<include file ="$(find realsense_camera)/test/f200_nodelet_rgbd.test">
+        </include>
+
+	<!-- include Hokuyo -->
+	<node name="hokuyo_node" pkg="hokuyo_node" type="hokuyo_node" respawn="true"/>
+	<node name="depth_processor" pkg="image_fox" type="depth_processor" respawn="true" output="screen">
+	</node>
+
+</launch>

@@ -1,0 +1,9 @@
+ <launch>
+ <!-- start all necessary nodes on tx2  -->
+ <include file ="$(find tracked_robot)/odom_param.launch"></include>
+ <include file ="$(find zed_wrapper)/launch/zed.launch"></include>
+ <include file ="$(find my_dynamixel_workbench_tutorial )/launch/position_control.launch"></include>
+ <include file ="$(find image_fox)/launch/stair_mark.launch"></include>
+ <node pkg="tracked_robot" name="Robot_Control_test" type="Robot_troller" />
+ <!-- <node pkg="image_fox" name="showpath" type="showpath" /> -->
+ </launch>
